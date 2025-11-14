@@ -46,16 +46,16 @@ export async function createSession(user: any) {
 
     // Access Next.js cookie API
     const { cookies } = await import('next/headers')
-    const cookieStore = cookies()
+    const cookieStore = cookies();
 
-        // Save the token in a secure cookie
-        ; (await cookieStore).set('session', sessionToken, {
-            expires,
-            httpOnly: true, // Not accessible from JS (more secure)
-            secure: process.env.NODE_ENV === 'production', // Only HTTPS in prod
-            sameSite: 'lax',
-            path: '/',
-        })
+    // Save the token in a secure cookie
+    (await cookieStore).set('session', sessionToken, {
+        expires,
+        httpOnly: true, // Not accessible from JS (more secure)
+        secure: process.env.NODE_ENV === 'production', // Only HTTPS in prod
+        sameSite: 'lax',
+        path: '/',
+    })
 }
 
 

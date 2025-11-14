@@ -70,7 +70,7 @@ export const apiService = {
     },
 
     getUserById: (userId: number) => {
-        return api.get(`/users/by-id/${userId}`);
+        return api.get(`/users/${userId}`);
     },
 
     getAllUsers: () => {
@@ -92,6 +92,8 @@ export const apiService = {
         });
     },
 
+
+    
     // PATIENTS ACCOUNT MANAGEMENT
     getMyPatientProfile: () => {
         return api.get("/patients/me");
